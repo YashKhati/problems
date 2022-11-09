@@ -2,7 +2,12 @@
 // TC = O(2^n)
 // SC = O(n)
 class Solution {
-    int NumberOfWays(int n)
+public:
+    int climbStairs(int n)
+    {
+        return NumberOfWays(n);
+    }
+     int NumberOfWays(int n)
     {
         if(n==0)
         {
@@ -14,8 +19,4 @@ class Solution {
         }
         return NumberOfWays(n-1)+NumberOfWays(n-2);
     }
-    public int climbStairs(int n) 
-    {
-        return NumberOfWays(n);
-    }
-}
+};
