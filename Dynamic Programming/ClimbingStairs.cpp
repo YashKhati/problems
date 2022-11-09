@@ -73,3 +73,48 @@ public:
         return dp[n];
     }
 };
+
+
+// Optimize Code Dp
+// TC=O(n)
+// SC=O(1)
+
+class Solution {
+public:
+    int climbStairs(int n)
+    {
+        vector<int> dp(2,0);
+        return NumberOfWays(n,dp);
+    }
+    
+    int NumberOfWays(int n,vector<int> &dp)
+    {
+        dp[1]=1;
+        dp[0]=0;
+        for(int i=1;i<=n;i++)
+        {
+            int ans = dp[0]+dp[1];
+            dp[0]=dp[1];
+            dp[1]=ans;
+        }
+        return dp[1];
+    }
+};
+
+class Solution {
+public:
+
+    int climbStairs(int n) {
+        if(n==0){
+            return 0;
+        }
+        int a=0,b=1,c{};
+        for(int i=1;i<=n;i++){
+            c=a+b;
+            a=b;
+            b=c;
+        }
+        return b;
+    }
+
+};
