@@ -24,7 +24,7 @@ public:
 
 // Memoization Method
 // TC = O(n)
-// SC = O(n)
+// SC = O(2n)
 
 class Solution {
 public:
@@ -44,5 +44,32 @@ public:
             return dp[n];
         }
         return dp[n]=NumberOfWays(n-1,dp)+NumberOfWays(n-2,dp);
+    }
+};
+
+// Dynamic Programming
+// TC =O(n);
+// SC = O(n);
+
+class Solution {
+public:
+    int climbStairs(int n)
+    {
+        vector<int> dp(n+1,0);
+        return NumberOfWays(n,dp);
+    }
+    
+    int NumberOfWays(int n,vector<int> &dp)
+    {
+        for(int i=0;i<=n;i++)
+        {
+            if(i<=2)
+            {
+                dp[i]=i;
+                continue;
+            }
+            dp[i]=dp[i-1]+dp[i-2];
+        }
+        return dp[n];
     }
 };
