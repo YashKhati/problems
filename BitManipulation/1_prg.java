@@ -38,5 +38,18 @@ public class Prg1
         System.out.println(num ^ Toggle);
         System.out.println(Integer.toBinaryString(num ^ Toggle));
 
+        // To check if ith bit is on or off of number
+        System.out.print("Enter a number : ");
+        num = sc.nextInt();
+        System.out.println(num +" in Binary : "+Integer.toBinaryString(num));
+        int CheckMask = 1;
+        CheckMask=(CheckMask<<2);
+        System.out.println("CheckMask in Binary : "+Integer.toBinaryString(CheckMask));
+        if ((num & CheckMask)==0) {
+            System.out.println("Bit is off ");
+        }
+        else {
+            System.out.println("Bit is on ");
+        }
     }
 }
