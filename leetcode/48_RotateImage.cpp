@@ -15,4 +15,4 @@ public:
     }
 };
 
-// Intitution : Get Transpose of Matrix and then reverse each row
+// Intution : Get Transpose of Matrix and then reverse each row
