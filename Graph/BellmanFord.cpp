@@ -1,3 +1,5 @@
+// TC = V*E
+
 #include<iostream>
 #include<vector>
 #include<set>
