@@ -68,3 +68,54 @@ public:
         return count;
     }
 };
+
+// ---------------------------------------------------------------------------
+// Using Disjoint set
+
+
+class Solution {
+public:
+    vector<int> parent;
+        int findUParent(int node)
+        {
+            if(parent[node] == node)
+                return node;
+            return parent[node] = findUParent(parent[node]);
+        }
+
+        void unionOfAccounts(int u, int v)
+        {
+            u = findUParent(u);
+            v = findUParent(v);
+            if(u != v)
+                parent[v] = u;
+
+        }
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        
+        int n=isConnected.size();
+        parent.resize(n);
+        for(int i=0;i<n;i++)
+        {
+            parent[i] = i;
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(isConnected[i][j])
+                {
+                    unionOfAccounts(i,j);
+                }
+            }
+        }
+
+        int count=0;
+        for(int i=0;i<n;i++)
+        {
+            if(parent[i]==i)
+                count++;
+        }
+        return count;
+    }
+};
